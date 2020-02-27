@@ -2,6 +2,8 @@
 OWASP Zed Attack Proxy
 
 ## Docker Setup
+Database password=password
+You can also use your own database, just point the clair server to the correct db in the docker-compose file.
 
 ```
 git clone https://github.com/Naman1997/Kaiburr.git
@@ -29,7 +31,10 @@ The Target Address should have the protocol mentioned -> http:// https:// \
 If it is not present, the tools fails
 
 ## Example for scaning images
-Once the image zap is built, we can use it to scan images
+Once the image zap is built, we can use it to scan images.
+The image scanning is handled by claircli by a function named printer in zap-baseline.py
+It's a one line instruction and can be changed for your liking. Learn more [HERE](https://github.com/joelee2012/claircli)
+
 ```
 #Here I'm using alpine:3 as the image to scan
 docker run --network kaiburr_default -t zap run.sh -b alpine:3

@@ -4,12 +4,36 @@ OWASP Zed Attack Proxy
 ## Docker Setup
 
 ```
-docker build -t <imagename> .
-docker run -t <imagename> run.sh -t <target address> -m <Minutes the spider runs>
+git clone Kaiburr
+cd Kaiburr #Rename the folder if its named something else
+
+docker-compose up -d postgres
+
+# Input data from the sql file, make sure the network for the continer above is named "kaiburr_default" or else you can change the network name for the command below
+docker run -it \
+    -v $(pwd):/sql/ \
+    --network "kaiburr_default" \
+    --link clair_postgres:clair_postgres \
+    postgres:latest \
+        bash -c "PGPASSWORD=password psql -h clair_postgres -U postgres < /sql/clair.sql"
+        
+#Start the clair server
+docker-compose up -d clair
+
+#Build our app
+sudo docker build -t zap .
 ```
 ## Warning
 The Target Address should have the protocol mentioned -> http:// https:// \ 
 If it is not present, the tools fails
+
+## Example for scaning images
+Once the image zap is built, we can use it to scan images
+```
+#Here I'm using alpine:3 as the image to scan
+docker run --network kaiburr_default -t zap run.sh -b alpine:3
+
+```
 
 ## Example 
 ```

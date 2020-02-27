@@ -20,6 +20,7 @@ docker run -t MyImage run.sh -t https://kaiburr.com -m 2
 The default spider run time is 1 minute.
 ## Parameters
 ```
+    -b target image         target image name ex:alpine:3
     -t target         target URL including the protocol, eg https://www.example.com
 
     -h                print this help message

@@ -74,6 +74,7 @@ def printer(image):
 
 def usage():
     print('Usage: zap-baseline.py -t <target> [options]')
+    print('    -b target image         target image name ex:alpine:3')
     print('    -t target         target URL including the protocol, eg https://www.example.com')
     print('Options:')
     print('    -h                print this help message')

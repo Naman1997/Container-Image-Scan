@@ -4,7 +4,7 @@ OWASP Zed Attack Proxy
 ## Docker Setup
 
 ```
-git clone Kaiburr
+git clone https://github.com/Naman1997/Kaiburr.git
 cd Kaiburr #Rename the folder if its named something else
 
 docker-compose up -d postgres

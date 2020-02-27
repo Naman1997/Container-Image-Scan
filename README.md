@@ -34,6 +34,7 @@ If it is not present, the tools fails
 Once the image zap is built, we can use it to scan images.
 The image scanning is handled by claircli by a function named printer in zap-baseline.py
 It's a one line instruction and can be changed for your liking. Learn more [HERE](https://github.com/joelee2012/claircli)
+Make sure that all 3 containers are on the same network. Below I have again used "kaiburr_default". If your network is named something else change it for the command below.
 
 ```
 #Here I'm using alpine:3 as the image to scan

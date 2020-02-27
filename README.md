@@ -10,6 +10,7 @@ cd Kaiburr #Rename the folder if its named something else
 docker-compose up -d postgres
 
 # Input data from the sql file, make sure the network for the continer above is named "kaiburr_default" or else you can change the network name for the command below
+#Also, the sql data can be downloaded by clair by default, however, you will have to wait 30 minutes for that, this is faster.
 docker run -it \
     -v $(pwd):/sql/ \
     --network "kaiburr_default" \

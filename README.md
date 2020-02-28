@@ -1,5 +1,5 @@
-# OWASP ZAP
-OWASP Zed Attack Proxy
+# Container and Image Scanner
+Scan servers and docker images
 
 ## Docker Setup
 Database password=password
